@@ -17,6 +17,8 @@ public class Common {
     public static Category selectedCategory = new Category();
 
     public static CountDownTimer countDownTimer;
+    public static int right_answer_count = 0;
+    public static int wrong_answer_count = 0;
 
 
     public enum ANSWER_TYPE {

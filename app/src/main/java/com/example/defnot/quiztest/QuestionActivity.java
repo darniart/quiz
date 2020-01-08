@@ -52,6 +52,7 @@ public class QuestionActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(Common.selectedCategory.getName());
         setSupportActionBar(toolbar);
 
 
@@ -65,7 +66,7 @@ public class QuestionActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //
+        // take question from db
         takeQuestion();
 
         if (Common.questionList.size() > 0) {
@@ -76,6 +77,8 @@ public class QuestionActivity extends AppCompatActivity
 
             txt_timer.setVisibility(View.VISIBLE);
             txt_right_answer.setVisibility(View.VISIBLE);
+
+            txt_right_answer.setText(new StringBuilder(String.format("%d/%d",Common.right_answer_count,Common.questionList.size())));
 
             countTimer();
 
@@ -157,6 +160,8 @@ public class QuestionActivity extends AppCompatActivity
         }
         else
             {
+                if (Common.answerSheetList.size() > 0) // clear previous question/answer
+                    Common.answerSheetList.clear();
                 // Gen answersheet item from question
                 for (int i=0;i<Common.questionList.size();i++)
                 {
