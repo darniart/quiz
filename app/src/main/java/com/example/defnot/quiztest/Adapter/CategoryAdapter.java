@@ -1,6 +1,7 @@
 package com.example.defnot.quiztest.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.defnot.quiztest.Common.Common;
 import com.example.defnot.quiztest.Model.Category;
+import com.example.defnot.quiztest.QuestionActivity;
 import com.example.defnot.quiztest.R;
 
 import java.util.List;
@@ -55,7 +58,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             card_category.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context, "Click at category"+categories.get(getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+
+                    Common.selectedCategory = categories.get(getAdapterPosition()); // assign current category
+                    Intent intent = new Intent(context,QuestionActivity.class);
+                    context.startActivity(intent);
+
                 }
             });
         }
