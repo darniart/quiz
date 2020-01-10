@@ -3,13 +3,13 @@ package com.example.defnot.quiztest.Model;
 public class Question {
     private int id;
     private String questionText, questionImage, answerA, answerB, answerC, answerD, correctAnswer;
-    private int isImageQuestion;
+    private boolean isImageQuestion;
     private int categoryid;
 
     public Question() {
     }
 
-    public Question(int id, String questionText, String questionImage, String answerA, String answerB, String answerC, String answerD, String correctAnswer, int isImageQuestion, int categoryid) {
+    public Question(int id, String questionText, String questionImage, String answerA, String answerB, String answerC, String answerD, String correctAnswer, boolean isImageQuestion, int categoryid) {
         this.id = id;
         this.questionText = questionText;
         this.questionImage = questionImage;
@@ -86,12 +86,12 @@ public class Question {
         this.correctAnswer = correctAnswer;
     }
 
-    public int getIsImageQuestion() {
+    public boolean isImageQuestion() {
         return isImageQuestion;
     }
 
-    public void setIsImageQuestion(int isImageQuestion) {
-        this.isImageQuestion = isImageQuestion;
+    public void setImageQuestion(boolean imageQuestion) {
+        isImageQuestion = imageQuestion;
     }
 
     public int getCategoryid() {
