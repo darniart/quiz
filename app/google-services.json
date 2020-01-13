@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1031211125904",
+    "firebase_url": "https://quiztest-b1d0a.firebaseio.com",
+    "project_id": "quiztest-b1d0a",
+    "storage_bucket": "quiztest-b1d0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031211125904:android:b6531afa1cfef5b0599c15",
+        "android_client_info": {
+          "package_name": "com.example.defnot.quiztest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031211125904-agdetvdo7g3e29g5temqof08j9273car.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.defnot.quiztest",
+            "certificate_hash": "40b8b58d25e6a83e5f99238fe350fff47f3add06"
+          }
+        },
+        {
+          "client_id": "1031211125904-a449j3q0952dj8n1og6bc9u311iud09r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8jS_uh0HJXx5pBWaKJ1y4_QbsrAync1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031211125904-a449j3q0952dj8n1og6bc9u311iud09r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
