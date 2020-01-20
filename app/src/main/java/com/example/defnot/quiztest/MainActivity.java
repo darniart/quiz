@@ -1,5 +1,6 @@
 package com.example.defnot.quiztest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import com.example.defnot.quiztest.Common.Common;
 import com.example.defnot.quiztest.Common.SpaceDecoration;
 import com.example.defnot.quiztest.DBHelper.DBHelper;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import io.paperdb.Paper;
 
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     RecyclerView recycler_category;
+
+    //Firebase auth
+    FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -89,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Init firebase auth
+        firebaseAuth =FirebaseAuth.getInstance();
 
         //Init paper
         Paper.init(this);
@@ -110,5 +118,23 @@ public class MainActivity extends AppCompatActivity {
         int spaceInPixel = 4;
         recycler_category.addItemDecoration(new SpaceDecoration(spaceInPixel));
         recycler_category.setAdapter(adapter);
+    }
+
+    private void checkUserStatus(){
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user != null){
+            //user signed here
+        }
+        else {
+            //user not signed in go to check
+            startActivity(new Intent(MainActivity.this, MainActivity.class));
+            finish();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        checkUserStatus();
+        super.onStart();
     }
 }
